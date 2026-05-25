@@ -1,0 +1,2 @@
+timestamp,asset,direction,amount_usd,buy_price,sell_price,gross_pnl_usd,fees_trading_usd,fees_withdrawal_usd,net_pnl_usd,net_pnl_pct,execution_time_sec,notes
+2026-05-25T08:00:00,SOL,Kraken->Crypto.com,100.00,150.00,154.50,3.00,0.34,1.50,1.16,1.16%,85,Manual execution test
