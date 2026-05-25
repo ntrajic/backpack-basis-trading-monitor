@@ -1,0 +1,87 @@
+ntrajic@DESKTOP-6PK7L32:/mnt/c/SRC/Py/backpack-basis-trading-monitor$ python arbitrage_scanner_topofbootkorder.py
+=========================================================
+  Order-Book Taker Scanner: Kraken Pro <-> Crypto.com   
+  Mode: Immediate Slippage Adjusted (Bid/Ask Crossing)   
+=========================================================
+Press Ctrl+C to terminate probe daemon.
+
+
+⚡ [2026-05-25T06:23:31.726881]
+  SOL  | Kraken:    Bid $     85.66 / Ask $     85.68
+       | Crypto.com: Bid $     85.58 / Ask $     85.59
+  BTC  | Kraken:    Bid $  77174.32 / Ask $  77174.33
+       | Crypto.com: Bid $  77158.99 / Ask $  77159.00
+  ETH  | Kraken:    Bid $   2098.40 / Ask $   2098.41
+       | Crypto.com: Bid $   2098.26 / Ask $   2098.27
+
+💤 Scanning... No cross-market order book overlap found after fees.
+
+⚡ [2026-05-25T06:23:39.032997]
+  SOL  | Kraken:    Bid $     85.60 / Ask $     85.61
+       | Crypto.com: Bid $     85.58 / Ask $     85.59
+  BTC  | Kraken:    Bid $  77174.32 / Ask $  77174.33
+       | Crypto.com: Bid $  77151.15 / Ask $  77151.16
+  ETH  | Kraken:    Bid $   2098.40 / Ask $   2098.41
+       | Crypto.com: Bid $   2098.37 / Ask $   2098.38
+
+💤 Scanning... No cross-market order book overlap found after fees.
+
+⚡ [2026-05-25T06:23:46.232052]
+  SOL  | Kraken:    Bid $     85.61 / Ask $     85.63
+       | Crypto.com: Bid $     85.61 / Ask $     85.62
+  BTC  | Kraken:    Bid $  77174.32 / Ask $  77174.33
+       | Crypto.com: Bid $  77172.69 / Ask $  77172.70
+  ETH  | Kraken:    Bid $   2098.72 / Ask $   2099.09
+       | Crypto.com: Bid $   2098.68 / Ask $   2098.84
+
+💤 Scanning... No cross-market order book overlap found after fees.
+
+⚡ [2026-05-25T06:23:53.543842]
+  SOL  | Kraken:    Bid $     85.61 / Ask $     85.64
+       | Crypto.com: Bid $     85.61 / Ask $     85.62
+  BTC  | Kraken:    Bid $  77174.32 / Ask $  77174.33
+       | Crypto.com: Bid $  77166.54 / Ask $  77166.55
+  ETH  | Kraken:    Bid $   2098.43 / Ask $   2098.80
+       | Crypto.com: Bid $   2098.48 / Ask $   2098.49
+
+💤 Scanning... No cross-market order book overlap found after fees.
+
+⚡ [2026-05-25T06:24:00.734098]
+  SOL  | Kraken:    Bid $     85.62 / Ask $     85.63
+       | Crypto.com: Bid $     85.60 / Ask $     85.61
+  BTC  | Kraken:    Bid $  77174.32 / Ask $  77174.33
+       | Crypto.com: Bid $  77166.54 / Ask $  77166.55
+  ETH  | Kraken:    Bid $   2098.43 / Ask $   2098.74
+       | Crypto.com: Bid $   2098.53 / Ask $   2098.54
+
+💤 Scanning... No cross-market order book overlap found after fees.
+
+⚡ [2026-05-25T06:24:07.919967]
+  SOL  | Kraken:    Bid $     85.63 / Ask $     85.64
+       | Crypto.com: Bid $     85.58 / Ask $     85.59
+  BTC  | Kraken:    Bid $  77174.32 / Ask $  77174.33
+       | Crypto.com: Bid $  77167.11 / Ask $  77167.12
+  ETH  | Kraken:    Bid $   2098.44 / Ask $   2098.45
+       | Crypto.com: Bid $   2098.25 / Ask $   2098.26
+
+💤 Scanning... No cross-market order book overlap found after fees.
+
+⚡ [2026-05-25T06:24:15.253875]
+  SOL  | Kraken:    Bid $     85.59 / Ask $     85.60
+       | Crypto.com: Bid $     85.59 / Ask $     85.60
+  BTC  | Kraken:    Bid $  77174.32 / Ask $  77174.33
+       | Crypto.com: Bid $  77167.11 / Ask $  77167.12
+  ETH  | Kraken:    Bid $   2098.39 / Ask $   2098.42
+       | Crypto.com: Bid $   2098.25 / Ask $   2098.26
+
+💤 Scanning... No cross-market order book overlap found after fees.
+
+⚡ [2026-05-25T06:24:22.419921]
+  SOL  | Kraken:    Bid $     85.59 / Ask $     85.60
+       | Crypto.com: Bid $     85.59 / Ask $     85.60
+  BTC  | Kraken:    Bid $  77174.32 / Ask $  77174.33
+       | Crypto.com: Bid $  77180.56 / Ask $  77180.57
+  ETH  | Kraken:    Bid $   2098.39 / Ask $   2098.40
+       | Crypto.com: Bid $   2098.51 / Ask $   2098.52
+
+💤 Scanning... No cross-market order book overlap found after fees.

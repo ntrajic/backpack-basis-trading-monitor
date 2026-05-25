@@ -5,27 +5,28 @@ Accounts for execution slippage by evaluating Ask-to-Bid crossing.
 """
 
 import ccxt
+import os
 import time
 from datetime import datetime
 
 # Initialize exchange interfaces
 kraken = ccxt.kraken({
-    'apiKey': 'YOUR_KRAKEN_API_KEY',
-    'secret': 'YOUR_KRAKEN_SECRET',
+    'apiKey': os.getenv('KRAKEN_API_KEY'),
+    'secret': os.getenv('KRAKEN_SECRET'),
     'enableRateLimit': True,
 })
 
 cryptocom = ccxt.cryptocom({
-    'apiKey': 'YOUR_CRYPTOCOM_API_KEY',
-    'secret': 'YOUR_CRYPTOCOM_SECRET',
+    'apiKey': os.getenv('CRYPTOCOM_API_KEY'),
+    'secret': os.getenv('CRYPTOCOM_SECRET'),
     'enableRateLimit': True,
 })
 
 # Market Symbol Mapping Matrix
 PAIRS = {
-    'SOL': {'kraken': 'SOL/USDC', 'cryptocom': 'SOL/USDC'},
-    'BTC': {'kraken': 'BTC/USDC', 'cryptocom': 'BTC/USDC'},
-    'ETH': {'kraken': 'ETH/USDC', 'cryptocom': 'ETH/USDC'},
+    'SOL': {'kraken': 'SOL/USDC', 'cryptocom': 'SOL_USD'},
+    'BTC': {'kraken': 'BTC/USDC', 'cryptocom': 'BTC_USD'},
+    'ETH': {'kraken': 'ETH/USDC', 'cryptocom': 'ETH_USD'},
 }
 
 # Static Fee Configurations (Taker Base Tiers)

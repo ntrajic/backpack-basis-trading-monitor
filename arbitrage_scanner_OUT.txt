@@ -1,0 +1,163 @@
+ntrajic@DESKTOP-6PK7L32:/mnt/c/SRC/Py/backpack-basis-trading-monitor$ python arbitrage_scanner.py
+=========================================================
+  Arbitrage Spatial Engine: Kraken Pro <-> Crypto.com   
+=========================================================
+Press Ctrl+C to terminate probe daemon.
+
+
+⚡ [2026-05-25T05:56:20.725189]
+  SOL  | Kraken: $     85.95 | Crypto.com: $     85.94
+  BTC  | Kraken: $  77339.99 | Crypto.com: $  77337.82
+  ETH  | Kraken: $   2106.53 | Crypto.com: $   2106.32
+
+💤 Scanning... Markets balanced below fee thresholds.
+
+⚡ [2026-05-25T05:56:27.901459]
+  SOL  | Kraken: $     85.95 | Crypto.com: $     85.93
+  BTC  | Kraken: $  77336.43 | Crypto.com: $  77333.32
+  ETH  | Kraken: $   2106.43 | Crypto.com: $   2106.18
+
+💤 Scanning... Markets balanced below fee thresholds.
+
+⚡ [2026-05-25T05:56:35.081427]
+  SOL  | Kraken: $     85.95 | Crypto.com: $     85.93
+  BTC  | Kraken: $  77332.46 | Crypto.com: $  77333.32
+  ETH  | Kraken: $   2106.50 | Crypto.com: $   2106.22
+
+💤 Scanning... Markets balanced below fee thresholds.
+
+⚡ [2026-05-25T05:56:42.279751]
+  SOL  | Kraken: $     85.95 | Crypto.com: $     85.93
+  BTC  | Kraken: $  77331.71 | Crypto.com: $  77333.32
+  ETH  | Kraken: $   2106.60 | Crypto.com: $   2106.40
+
+💤 Scanning... Markets balanced below fee thresholds.
+
+⚡ [2026-05-25T05:56:49.462972]
+  SOL  | Kraken: $     85.95 | Crypto.com: $     85.93
+  BTC  | Kraken: $  77328.23 | Crypto.com: $  77327.64
+  ETH  | Kraken: $   2106.52 | Crypto.com: $   2106.40
+
+💤 Scanning... Markets balanced below fee thresholds.
+
+⚡ [2026-05-25T05:56:56.630813]
+  SOL  | Kraken: $     85.95 | Crypto.com: $     85.93
+  BTC  | Kraken: $  77328.23 | Crypto.com: $  77327.64
+  ETH  | Kraken: $   2106.48 | Crypto.com: $   2106.28
+
+💤 Scanning... Markets balanced below fee thresholds.
+
+⚡ [2026-05-25T05:57:03.845314]
+  SOL  | Kraken: $     85.95 | Crypto.com: $     85.91
+  BTC  | Kraken: $  77320.29 | Crypto.com: $  77321.21
+  ETH  | Kraken: $   2106.16 | Crypto.com: $   2105.88
+
+💤 Scanning... Markets balanced below fee thresholds.
+
+⚡ [2026-05-25T05:57:11.016238]
+  SOL  | Kraken: $     85.92 | Crypto.com: $     85.91
+  BTC  | Kraken: $  77320.29 | Crypto.com: $  77321.21
+  ETH  | Kraken: $   2106.16 | Crypto.com: $   2105.88
+
+💤 Scanning... Markets balanced below fee thresholds.
+
+⚡ [2026-05-25T05:57:18.326804]
+  SOL  | Kraken: $     85.92 | Crypto.com: $     85.91
+  BTC  | Kraken: $  77328.04 | Crypto.com: $  77326.90
+  ETH  | Kraken: $   2106.36 | Crypto.com: $   2106.14
+
+💤 Scanning... Markets balanced below fee thresholds.
+
+⚡ [2026-05-25T05:57:25.493763]
+  SOL  | Kraken: $     85.91 | Crypto.com: $     85.91
+  BTC  | Kraken: $  77328.04 | Crypto.com: $  77327.64
+  ETH  | Kraken: $   2106.28 | Crypto.com: $   2106.07
+
+💤 Scanning... Markets balanced below fee thresholds.
+
+⚡ [2026-05-25T05:57:32.659109]
+  SOL  | Kraken: $     85.91 | Crypto.com: $     85.91
+  BTC  | Kraken: $  77328.04 | Crypto.com: $  77327.64
+  ETH  | Kraken: $   2106.27 | Crypto.com: $   2105.91
+
+💤 Scanning... Markets balanced below fee thresholds.
+^C
+Exiting Probe Daemon safely.
+ntrajic@DESKTOP-6PK7L32:/mnt/c/SRC/Py/backpack-basis-trading-monitor$ python find_kraken_balance.py 
+{'info': {'error': [], 'result': {'SOL': {'balance': '0.0000419352', 'hold_trade': '0.0000000000'}, 'USDC': {'balance': '96.61497165', 'hold_trade': '0.00000000'}}}, 'timestamp': None, 'datetime': None, 'SOL': {'free': 4.19352e-05, 'used': 0.0, 'total': 4.19352e-05}, 'USDC': {'free': 96.61497165, 'used': 0.0, 'total': 96.61497165}, 'free': {'SOL': 4.19352e-05, 'USDC': 96.61497165}, 'used': {'SOL': 0.0, 'USDC': 0.0}, 'total': {'SOL': 4.19352e-05, 'USDC': 96.61497165}}
+ntrajic@DESKTOP-6PK7L32:/mnt/c/SRC/Py/backpack-basis-trading-monitor$ python arbitrage_scanner.py
+=========================================================
+  Arbitrage Spatial Engine: Kraken Pro <-> Crypto.com   
+=========================================================
+Press Ctrl+C to terminate probe daemon.
+
+
+⚡ [2026-05-25T06:06:17.206938]
+  SOL  | Kraken: $     85.94 | Crypto.com: $     85.93
+  BTC  | Kraken: $  77328.39 | Crypto.com: $  77330.39
+  ETH  | Kraken: $   2105.24 | Crypto.com: $   2105.36
+
+💤 Scanning... Markets balanced below fee thresholds.
+
+⚡ [2026-05-25T06:06:24.398655]
+  SOL  | Kraken: $     85.96 | Crypto.com: $     85.97
+  BTC  | Kraken: $  77339.98 | Crypto.com: $  77338.45
+  ETH  | Kraken: $   2105.43 | Crypto.com: $   2105.47
+
+💤 Scanning... Markets balanced below fee thresholds.
+
+⚡ [2026-05-25T06:06:31.619069]
+  SOL  | Kraken: $     85.97 | Crypto.com: $     85.97
+  BTC  | Kraken: $  77339.96 | Crypto.com: $  77338.45
+  ETH  | Kraken: $   2105.55 | Crypto.com: $   2105.38
+
+💤 Scanning... Markets balanced below fee thresholds.
+
+⚡ [2026-05-25T06:06:38.798883]
+  SOL  | Kraken: $     85.97 | Crypto.com: $     85.94
+  BTC  | Kraken: $  77339.43 | Crypto.com: $  77326.82
+  ETH  | Kraken: $   2105.27 | Crypto.com: $   2104.77
+
+💤 Scanning... Markets balanced below fee thresholds.
+
+⚡ [2026-05-25T06:06:46.133250]
+  SOL  | Kraken: $     85.95 | Crypto.com: $     85.94
+  BTC  | Kraken: $  77323.39 | Crypto.com: $  77326.82
+  ETH  | Kraken: $   2104.84 | Crypto.com: $   2104.69
+
+💤 Scanning... Markets balanced below fee thresholds.
+
+⚡ [2026-05-25T06:06:53.318545]
+  SOL  | Kraken: $     85.94 | Crypto.com: $     85.93
+  BTC  | Kraken: $  77320.57 | Crypto.com: $  77322.24
+  ETH  | Kraken: $   2104.71 | Crypto.com: $   2104.51
+
+💤 Scanning... Markets balanced below fee thresholds.
+
+⚡ [2026-05-25T06:07:00.629750]
+  SOL  | Kraken: $     85.94 | Crypto.com: $     85.93
+  BTC  | Kraken: $  77324.03 | Crypto.com: $  77322.24
+  ETH  | Kraken: $   2104.66 | Crypto.com: $   2104.51
+
+💤 Scanning... Markets balanced below fee thresholds.
+
+⚡ [2026-05-25T06:07:07.890829]
+  SOL  | Kraken: $     85.94 | Crypto.com: $     85.91
+  BTC  | Kraken: $  77320.29 | Crypto.com: $  77322.24
+  ETH  | Kraken: $   2104.45 | Crypto.com: $   2104.22
+
+💤 Scanning... Markets balanced below fee thresholds.
+
+⚡ [2026-05-25T06:07:15.060393]
+  SOL  | Kraken: $     85.93 | Crypto.com: $     85.93
+  BTC  | Kraken: $  77320.27 | Crypto.com: $  77317.24
+  ETH  | Kraken: $   2104.03 | Crypto.com: $   2104.01
+
+💤 Scanning... Markets balanced below fee thresholds.
+
+⚡ [2026-05-25T06:07:22.369765]
+  SOL  | Kraken: $     85.93 | Crypto.com: $     85.93
+  BTC  | Kraken: $  77320.27 | Crypto.com: $  77317.24
+  ETH  | Kraken: $   2103.98 | Crypto.com: $   2103.69
+
+💤 Scanning... Markets balanced below fee thresholds.

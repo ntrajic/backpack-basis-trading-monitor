@@ -1,0 +1,70 @@
+ntrajic@DESKTOP-6PK7L32:/mnt/c/SRC/Py/backpack-basis-trading-monitor
+$ python 3_ang_arbitrage_scanner_100.py
+=========================================================
+ Mini-Capital Triangular Engine | Target Wallet: $100.0 USDC 
+=========================================================
+[2026-05-25T06:28:00.753644] Circuit: USDC -> SOL -> CAD -> USDC
+  | Rates: L1(Ask): 85.6800 | L2(Bid): 118.3100 | L3(Ask): 1.3813
+  | Gross Yield: -0.034% | Net Yield After 3 Taker Fees: -0.814%
+  | Projected Out: $99.97 USDC from $100.0 Initial
+💤 Circuit evaluated below trading fee hurdles.
+[2026-05-25T06:28:03.924240] Circuit: USDC -> SOL -> CAD -> USDC
+  | Rates: L1(Ask): 85.6800 | L2(Bid): 118.3100 | L3(Ask): 1.3813
+  | Gross Yield: -0.034% | Net Yield After 3 Taker Fees: -0.814%
+  | Projected Out: $99.97 USDC from $100.0 Initial
+💤 Circuit evaluated below trading fee hurdles.
+[2026-05-25T06:28:07.095253] Circuit: USDC -> SOL -> CAD -> USDC
+  | Rates: L1(Ask): 85.6800 | L2(Bid): 118.3100 | L3(Ask): 1.3813
+  | Gross Yield: -0.034% | Net Yield After 3 Taker Fees: -0.814%
+  | Projected Out: $99.97 USDC from $100.0 Initial
+💤 Circuit evaluated below trading fee hurdles.
+[2026-05-25T06:28:10.265437] Circuit: USDC -> SOL -> CAD -> USDC
+  | Rates: L1(Ask): 85.6800 | L2(Bid): 118.3100 | L3(Ask): 1.3813
+  | Gross Yield: -0.034% | Net Yield After 3 Taker Fees: -0.814%
+  | Projected Out: $99.97 USDC from $100.0 Initial
+💤 Circuit evaluated below trading fee hurdles.
+[2026-05-25T06:28:13.441106] Circuit: USDC -> SOL -> CAD -> USDC
+  | Rates: L1(Ask): 85.6800 | L2(Bid): 118.3100 | L3(Ask): 1.3813
+  | Gross Yield: -0.034% | Net Yield After 3 Taker Fees: -0.814%
+  | Projected Out: $99.97 USDC from $100.0 Initial
+💤 Circuit evaluated below trading fee hurdles.
+[2026-05-25T06:28:16.614575] Circuit: USDC -> SOL -> CAD -> USDC
+  | Rates: L1(Ask): 85.6800 | L2(Bid): 118.3000 | L3(Ask): 1.3813
+  | Gross Yield: -0.042% | Net Yield After 3 Taker Fees: -0.822%
+  | Projected Out: $99.96 USDC from $100.0 Initial
+💤 Circuit evaluated below trading fee hurdles.
+[2026-05-25T06:28:19.783454] Circuit: USDC -> SOL -> CAD -> USDC
+  | Rates: L1(Ask): 85.6800 | L2(Bid): 118.3000 | L3(Ask): 1.3813
+  | Gross Yield: -0.042% | Net Yield After 3 Taker Fees: -0.822%
+  | Projected Out: $99.96 USDC from $100.0 Initial
+💤 Circuit evaluated below trading fee hurdles.
+[2026-05-25T06:28:22.951781] Circuit: USDC -> SOL -> CAD -> USDC
+  | Rates: L1(Ask): 85.6800 | L2(Bid): 118.3100 | L3(Ask): 1.3813
+  | Gross Yield: -0.034% | Net Yield After 3 Taker Fees: -0.814%
+  | Projected Out: $99.97 USDC from $100.0 Initial
+💤 Circuit evaluated below trading fee hurdles.
+[2026-05-25T06:28:26.117468] Circuit: USDC -> SOL -> CAD -> USDC
+  | Rates: L1(Ask): 85.6800 | L2(Bid): 118.3100 | L3(Ask): 1.3813
+  | Gross Yield: -0.034% | Net Yield After 3 Taker Fees: -0.814%
+  | Projected Out: $99.97 USDC from $100.0 Initial
+💤 Circuit evaluated below trading fee hurdles.
+[2026-05-25T06:28:29.285752] Circuit: USDC -> SOL -> CAD -> USDC
+  | Rates: L1(Ask): 85.6800 | L2(Bid): 118.2800 | L3(Ask): 1.3813
+  | Gross Yield: -0.059% | Net Yield After 3 Taker Fees: -0.839%
+  | Projected Out: $99.94 USDC from $100.0 Initial
+💤 Circuit evaluated below trading fee hurdles.
+[2026-05-25T06:28:32.454139] Circuit: USDC -> SOL -> CAD -> USDC
+  | Rates: L1(Ask): 85.6800 | L2(Bid): 118.2800 | L3(Ask): 1.3813
+  | Gross Yield: -0.059% | Net Yield After 3 Taker Fees: -0.839%
+  | Projected Out: $99.94 USDC from $100.0 Initial
+💤 Circuit evaluated below trading fee hurdles.
+[2026-05-25T06:28:35.622157] Circuit: USDC -> SOL -> CAD -> USDC
+  | Rates: L1(Ask): 85.6800 | L2(Bid): 118.3000 | L3(Ask): 1.3813
+  | Gross Yield: -0.042% | Net Yield After 3 Taker Fees: -0.822%
+  | Projected Out: $99.96 USDC from $100.0 Initial
+💤 Circuit evaluated below trading fee hurdles.
+[2026-05-25T06:28:38.789060] Circuit: USDC -> SOL -> CAD -> USDC
+  | Rates: L1(Ask): 85.6800 | L2(Bid): 118.3000 | L3(Ask): 1.3813
+  | Gross Yield: -0.042% | Net Yield After 3 Taker Fees: -0.822%
+  | Projected Out: $99.96 USDC from $100.0 Initial
+💤 Circuit evaluated below trading fee hurdles.

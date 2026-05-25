@@ -1,0 +1,39 @@
+ntrajic@DESKTOP-6PK7L32:/mnt/c/SRC/Py/backpack-basis-trading-monitor$ python 3_ang_arbitrage_scanner_depth_big_orders.py
+=========================================================
+ Institutional Multi-Tier Depth Matrix Engine Simulator 
+=========================================================
+
+⚡ Telemetry Capture [2026-05-25T06:30:37.467198]
+  | Size: $1,000.00 USDC -> Net Yield: -0.8259% | Out: $     999.54 USDC | 🔴 UNPROFITABLE (SLIPPAGE DRAGGED)
+  | Size: $5,000.00 USDC -> Net Yield: -0.8585% | Out: $   4,996.07 USDC | 🔴 UNPROFITABLE (SLIPPAGE DRAGGED)
+  | Size: $10,000.00 USDC -> Net Yield: -0.8916% | Out: $   9,988.84 USDC | 🔴 UNPROFITABLE (SLIPPAGE DRAGGED)
+  | Size: $50,000.00 USDC -> Net Yield: -1.0902% | Out: $  49,844.92 USDC | 🔴 UNPROFITABLE (SLIPPAGE DRAGGED)
+  | Size: $100,000.00 USDC -> Net Yield: -1.2997% | Out: $  99,480.28 USDC | 🔴 UNPROFITABLE (SLIPPAGE DRAGGED)
+
+⚡ Telemetry Capture [2026-05-25T06:30:48.239637]
+  | Size: $1,000.00 USDC -> Net Yield: -0.8192% | Out: $     999.61 USDC | 🔴 UNPROFITABLE (SLIPPAGE DRAGGED)
+  | Size: $5,000.00 USDC -> Net Yield: -0.8571% | Out: $   4,996.15 USDC | 🔴 UNPROFITABLE (SLIPPAGE DRAGGED)
+  | Size: $10,000.00 USDC -> Net Yield: -0.8937% | Out: $   9,988.63 USDC | 🔴 UNPROFITABLE (SLIPPAGE DRAGGED)
+  | Size: $50,000.00 USDC -> Net Yield: -1.0928% | Out: $  49,843.61 USDC | 🔴 UNPROFITABLE (SLIPPAGE DRAGGED)
+  | Size: $100,000.00 USDC -> Net Yield: -1.3009% | Out: $  99,479.07 USDC | 🔴 UNPROFITABLE (SLIPPAGE DRAGGED)
+
+⚡ Telemetry Capture [2026-05-25T06:30:56.811853]
+  | Size: $1,000.00 USDC -> Net Yield: -0.8234% | Out: $     999.57 USDC | 🔴 UNPROFITABLE (SLIPPAGE DRAGGED)
+  | Size: $5,000.00 USDC -> Net Yield: -0.8444% | Out: $   4,996.78 USDC | 🔴 UNPROFITABLE (SLIPPAGE DRAGGED)
+  | Size: $10,000.00 USDC -> Net Yield: -0.8872% | Out: $   9,989.28 USDC | 🔴 UNPROFITABLE (SLIPPAGE DRAGGED)
+  | Size: $50,000.00 USDC -> Net Yield: -1.0820% | Out: $  49,849.01 USDC | 🔴 UNPROFITABLE (SLIPPAGE DRAGGED)
+  | Size: $100,000.00 USDC -> Net Yield: -1.2914% | Out: $  99,488.63 USDC | 🔴 UNPROFITABLE (SLIPPAGE DRAGGED)
+
+⚡ Telemetry Capture [2026-05-25T06:31:05.392098]
+  | Size: $1,000.00 USDC -> Net Yield: -0.8172% | Out: $     999.63 USDC | 🔴 UNPROFITABLE (SLIPPAGE DRAGGED)
+  | Size: $5,000.00 USDC -> Net Yield: -0.8362% | Out: $   4,997.19 USDC | 🔴 UNPROFITABLE (SLIPPAGE DRAGGED)
+  | Size: $10,000.00 USDC -> Net Yield: -0.8859% | Out: $   9,989.41 USDC | 🔴 UNPROFITABLE (SLIPPAGE DRAGGED)
+  | Size: $50,000.00 USDC -> Net Yield: -1.1959% | Out: $  49,792.04 USDC | 🔴 UNPROFITABLE (SLIPPAGE DRAGGED)
+  | Size: $100,000.00 USDC -> Net Yield: -1.7899% | Out: $  98,990.12 USDC | 🔴 UNPROFITABLE (SLIPPAGE DRAGGED)
+
+⚡ Telemetry Capture [2026-05-25T06:31:13.981635]
+  | Size: $1,000.00 USDC -> Net Yield: -0.8581% | Out: $     999.22 USDC | 🔴 UNPROFITABLE (SLIPPAGE DRAGGED)
+  | Size: $5,000.00 USDC -> Net Yield: -0.8893% | Out: $   4,994.54 USDC | 🔴 UNPROFITABLE (SLIPPAGE DRAGGED)
+  | Size: $10,000.00 USDC -> Net Yield: -0.9230% | Out: $   9,985.70 USDC | 🔴 UNPROFITABLE (SLIPPAGE DRAGGED)
+  | Size: $50,000.00 USDC -> Net Yield: -1.1419% | Out: $  49,819.05 USDC | 🔴 UNPROFITABLE (SLIPPAGE DRAGGED)
+  | Size: $100,000.00 USDC -> Net Yield: -1.3930% | Out: $  99,386.98 USDC | 🔴 UNPROFITABLE (SLIPPAGE DRAGGED)
