@@ -1,0 +1,138 @@
+ Assumed Spreads for Calculation:
+
+
+   * For highly liquid pairs like BTC/USDT and ETH/USDT, spreads can be as low as 0.01% - 0.05%.
+   * For ETH/BTC, it might be slightly higher, perhaps 0.05% - 0.1%.
+
+
+  To be conservative and illustrate the impact of the spread during rollback, I will use an average effective spread 
+  of 0.05% (0.0005) for each market order during rollback. This means that when you buy at market, you pay 0.05% more
+  than the mid-price, and when you sell at market, you receive 0.05% less than the mid-price. So, for a round trip
+  (buy and then sell with market orders), the total spread cost would be approximately 0.1%.
+
+  Parameters for Refined Calculation:
+
+
+   * Initial Capital (C): $100 USDT
+   * Taker Fee (F): 0.0026 (0.26%)
+   * Effective Market Order Spread (S): 0.0005 (0.05%) per side of a market order. This is the additional cost beyond
+     the taker fee when using a market order to unwind.
+
+  Scenario: Forward Route (USDT -> BTC -> ETH -> USDT)
+
+
+  Let's assume initial prices are such that 1 BTC = 30,000 USDT, 1 ETH = 2,000 USDT, 1 ETH = 0.06666 BTC (approx).
+
+  ---
+
+  Case 1: 1 Leg Fails (Leg 1 filled, Leg 2 & 3 fail)
+
+
+  This implies Leg 1 (Buy BTC with USDT) was filled, but the subsequent legs failed. The bot needs to unwind Leg 1.
+
+
+   1. Leg 1: Buy BTC with USDT (Filled)
+       * Amount spent: C = $100
+       * Fee paid: C * F = 100 * 0.0026 = $0.26
+       * Net USDT after fee: 100 - 0.26 = $99.74
+       * BTC received (approx): 99.74 / 30000 = 0.0033246 BTC (This is the value of BTC we now hold)
+
+   2. Leg 2 & 3: Failed/Cancelled
+       * No additional fees or fills.
+
+
+   3. Rollback: Sell BTC for USDT (Market Order)
+       * Amount of BTC to sell: 0.0033246 BTC
+       * Value of BTC (approx): 0.0033246 * 30000 = $99.738
+       * Fee paid (taker fee): 99.738 * F = 99.738 * 0.0026 = $0.2593
+       * Spread cost (effective loss due to market order): 99.738 * S = 99.738 * 0.0005 = $0.0498
+       * Total cost of rollback: 0.2593 + 0.0498 = $0.3091
+
+
+  Total Overhead for 1 Leg Filled (2 Fail):
+  Fee from Leg 1 fill + Cost of Rollback
+  $0.26 + $0.3091 = $0.5691
+
+  ---
+
+
+  Case 2: 2 Legs Fails (Leg 1 & 2 filled, Leg 3 fails)
+
+
+  This implies Leg 1 (Buy BTC with USDT) and Leg 2 (Buy ETH with BTC) were filled, but Leg 3 (Sell ETH for USDT)
+  failed. The bot needs to unwind Leg 2, then Leg 1.
+
+
+   1. Leg 1: Buy BTC with USDT (Filled)
+       * Amount spent: C = $100
+       * Fee paid: C * F = 100 * 0.0026 = $0.26
+       * Net USDT after fee: 100 - 0.26 = $99.74
+       * BTC received (approx): 99.74 / 30000 = 0.0033246 BTC
+
+
+   2. Leg 2: Buy ETH with BTC (Filled)
+       * Amount of BTC spent: 0.0033246 BTC
+       * Value of BTC spent (approx): 0.0033246 * 30000 = $99.738
+       * Fee paid (in BTC equivalent): 99.738 * F = 99.738 * 0.0026 = $0.2593
+       * Net BTC after fee: 0.0033246 * (1 - 0.0026) = 0.0033160 BTC
+       * ETH received (approx): 0.0033160 / 0.06666 = 0.04974 ETH (This is the value of ETH we now hold)
+
+   3. Leg 3: Failed/Cancelled
+       * No additional fees or fills.
+
+
+   4. Rollback Leg 2: Sell ETH for BTC (Market Order)
+       * Amount of ETH to sell: 0.04974 ETH
+       * Value of ETH (approx): 0.04974 * 2000 = $99.48
+       * Fee paid (taker fee): 99.48 * F = 99.48 * 0.0026 = $0.2586
+       * Spread cost (effective loss due to market order): 99.48 * S = 99.48 * 0.0005 = $0.0497
+       * BTC received from rollback (approx): 0.04974 * 0.06666 * (1 - F - S) = 0.003299 BTC
+
+
+   5. Rollback Leg 1: Sell BTC for USDT (Market Order)
+       * Amount of BTC to sell: 0.003299 BTC
+       * Value of BTC (approx): 0.003299 * 30000 = $98.97
+       * Fee paid (taker fee): 98.97 * F = 98.97 * 0.0026 = $0.2573
+       * Spread cost (effective loss due to market order): 98.97 * S = 98.97 * 0.0005 = $0.0494
+
+
+  Total Overhead for 2 Legs Filled (1 Fails):
+  Fee from Leg 1 fill + Fee from Leg 2 fill + Cost of Rollback Leg 2 + Cost of Rollback Leg 1
+  $0.26 + $0.2593 + ($0.2586 + $0.0497) + ($0.2573 + $0.0494)
+  $0.26 + $0.2593 + $0.3083 + $0.3067 = $1.1343
+
+  ---
+
+
+  Summary of Refined Overhead (for $100 Capital, 0.26% Taker Fee, 0.05% effective market spread per side):
+
+
+   * 0 Legs Filled (all fail): $0
+   * 1 Leg Filled (2 fail): Approximately $0.57
+   * 2 Legs Filled (1 fails): Approximately $1.13
+
+  Comparison to a Successful Arbitrage:
+
+
+  For a successful 3-leg arbitrage, the fees would be approximately:
+  3 * C * F = 3 * 100 * 0.0026 = $0.78
+
+  So, the additional cost (overhead) due to failure and rollback, compared to a successful trade's fees, would be:
+
+
+   * 1 Leg Filled: $0.57 (failed) - $0.78 (successful) = -$0.21 (This indicates that if only one leg fills and is
+     rolled back, the total fees might be less than a full successful arbitrage, because fewer transactions occurred.
+     However, the intent was to profit, so this is still a loss of the expected profit.)
+   * 2 Legs Filled: $1.13 (failed) - $0.78 (successful) = +$0.35 (This shows a clear additional cost due to the
+     rollback market orders.)
+
+  Key Takeaway:
+
+
+  The primary overhead in a failed arbitrage with rollback comes from the market order spread incurred during the
+  unwinding process. The more legs that are filled before a failure, the higher the potential overhead, as more
+  market orders are needed for rollback. The code's explicit warning about paying the spread again is very accurate.
+
+
+  These calculations are still approximations, as real-world prices and spreads fluctuate. However, they provide a
+  much clearer picture of the potential costs involved in the rollback mechanism.
