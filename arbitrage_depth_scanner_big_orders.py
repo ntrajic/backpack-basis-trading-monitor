@@ -17,9 +17,9 @@ TRADE_SIZE_USD = 2500.00   # Your target test capital scale
 POLLING_INTERVAL = 6       # Slightly relaxed to prevent depth endpoint rate-limiting
 
 PAIRS = {
-    'SOL': {'kraken': 'SOL/USDC', 'cryptocom': 'SOL/USDC'},
-    'BTC': {'kraken': 'BTC/USDC', 'cryptocom': 'BTC/USDC'},
-    'ETH': {'kraken': 'ETH/USDC', 'cryptocom': 'ETH/USDC'},
+    'SOL': {'kraken': 'SOL/USDC', 'cryptocom': 'SOL/USDT'},
+    'BTC': {'kraken': 'BTC/USDC', 'cryptocom': 'BTC/USDT'},
+    'ETH': {'kraken': 'ETH/USDC', 'cryptocom': 'ETH/USDT'},
 }
 
 # Taker Base Tiers
@@ -47,7 +47,8 @@ def get_effective_price(order_book_side, target_usd):
     accumulated_usd = 0.0
     accumulated_base = 0.0
     
-    for price, volume in order_book_side:
+    for level in order_book_side:
+        price, volume = level[0], level[1]
         level_usd = price * volume
         
         if accumulated_usd + level_usd >= target_usd:
@@ -129,7 +130,7 @@ def evaluate_opportunities(metrics):
         # Direction 2: Buy Crypto.com Depth -> Sell Kraken Depth
         if k['eff_bid'] > c['eff_ask']:
             gross_spread = (k['eff_bid'] - c['eff_ask']) / c['eff_ask']
-            net_spread = gross_spread - TOTAL_TRADE_FEE - (WITHDRAWAL_FEES[asset] / c_ask)
+            net_spread = gross_spread - TOTAL_TRADE_FEE - (WITHDRAWAL_FEES[asset] / c['eff_ask'])
             
             if net_spread > 0:
                 opportunities.append({
@@ -154,8 +155,12 @@ def main():
             
             print(f"\n⚡ [{datetime.utcnow().isoformat()}]")
             for asset, data in metrics.items():
-                print(f"  {asset:4s} | Kraken Eff:    Bid ${data['kraken']['eff_bid']:10.2f} / Ask ${data['kraken']['eff_ask']:10.2f}")
-                print(f"       | Crypto.com Eff: Bid ${data['cryptocom']['eff_bid']:10.2f} / Ask ${data['cryptocom']['eff_ask']:10.2f}")
+                k_bid = f"${data['kraken']['eff_bid']:10.2f}" if data['kraken']['eff_bid'] else '  N/A (shallow)'
+                k_ask = f"${data['kraken']['eff_ask']:10.2f}" if data['kraken']['eff_ask'] else '  N/A (shallow)'
+                c_bid = f"${data['cryptocom']['eff_bid']:10.2f}" if data['cryptocom']['eff_bid'] else '  N/A (shallow)'
+                c_ask = f"${data['cryptocom']['eff_ask']:10.2f}" if data['cryptocom']['eff_ask'] else '  N/A (shallow)'
+                print(f"  {asset:4s} | Kraken Eff:    Bid {k_bid} / Ask {k_ask}")
+                print(f"       | Crypto.com Eff: Bid {c_bid} / Ask {c_ask}")
                 
             if opps:
                 print("\n🟢 PROFITABLE DEPTH ALPHA DETECTED:")

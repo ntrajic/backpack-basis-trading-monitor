@@ -30,6 +30,30 @@ When executing the array payload via the API, append the timeInForce: 'IOC' opti
 If Leg 1 fills completely but Leg 2 misses its entry boundary by even a fraction of a cent, 
 the engine kills the loop instantly, preventing your account from accumulating unhedged capital slippage.
 
+ANALYSIS
+
+Taker Fee ApplicationThe calculation correctly applies a flat 0.78% multi-leg penalty 
+(0.26% $\times$ 3). This is highly accurate for a baseline retail account setup. 
+The output logs confirm that the scripts accurately identify that the spreads 
+are insufficient to clear this high taker fee hurdle, protecting your $100 capital 
+from deprecation.
+
+Punctuality Critique
+
+Script 1: REST Polling (3_ang_arbitrage_scanner_100.py)
+
+Punctuality 
+Rating: 🔴 Poor (Completely Unusable for Live Execution)
+
+Analysis: The logs show an execution timestamp delta of exactly 3.16 seconds between loops.
+
+Plaintext[06:28:00.753644] -> [06:28:03.924240] -> [06:28:07.094522]
+
+In high-frequency environments, a 3-second delay is an eternity. 
+Arbitrage imbalances on centralized matching engines are usually consumed by institution
+al co-located systems within 5 to 50 milliseconds. 
+Polling via standard REST requests means you are looking at historical snapshots of 
+what the market used to be, rather than its live state.
 """
 
 import ccxt
