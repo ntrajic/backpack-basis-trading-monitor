@@ -1,0 +1,17 @@
+# systemd/arbitrage_unified_dbg7_ws.service
+[Unit]
+Description=Unified Kraken-Crypto Arbitrage Bot (dbg7_ws_latency)
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/opt/dbg7_ws_latency
+ExecStart=/usr/bin/python3 /opt/dbg7_ws_latency/arbitrage_unified_dbg7_ws.py
+Restart=always
+RestartSec=5
+Environment="EXECUTION_MODE=semi_auto"
+Environment="ARB_LOG_DIR=/opt/dbg7_ws_latency/logs"
+
+[Install]
+WantedBy=multi-user.target
