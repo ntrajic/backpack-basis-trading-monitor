@@ -1,5 +1,5 @@
 {\rtf1\fbidis\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil Calibri;}{\f2\fnil Segoe UI Symbol;}{\f3\fnil\fcharset1 Segoe UI Emoji;}{\f4\fnil\fcharset1 Segoe UI Symbol;}{\f5\fnil\fcharset1 Segoe UI Symbol;}{\f6\fnil\fcharset1 Cambria Math;}{\f7\fnil\fcharset0 Cambria Math;}{\f8\fnil Cambria Math;}}
-{\colortbl ;\red255\green255\blue0;\red0\green255\blue255;}
+{\colortbl ;\red255\green255\blue0;\red0\green255\blue255;\red0\green0\blue255;}
 {\*\generator Riched20 10.0.19041}{\*\mmathPr\mmathFont6\mwrapIndent1440 }\viewkind4\uc1 
 \pard\sa200\sl276\slmult1\f0\fs22\lang9 Answer this cleanly and directly \f1\emdash  no fluff, no ambiguity, and grounded in \highlight1\b how your dbg5/dbg6 engine is designed\b0 .\highlight0\par
 You asked three things:\par
@@ -506,6 +506,48 @@ Unified bot (Mode C)\par
 \highlight1 Produce a README_dbg7_ws_latency.md\par
 Produce a systemd service file for running the unified bot\par
 Add latency metrics (tick-to-fill timing)\par
-Add Grafana dashboard JSON for monitoring\f0\lang9\par
+Add Grafana dashboard JSON for monitoring\par
+\par
+------\par
+\par
+\highlight0 Here is the _dbg6_anthropic implementation: \par
+The Kraken HMAC test vector mismatch tells me exactly what's wrong \f8\emdash  \f7 I need to verify the correct algorithm against Kraken's actual documentation before writing a single line.Searched the webSearched the webNow I have both exact algorithms from primary sources. The Kraken bug in dbg6 was hmac.new(secret, nonce + POST_DATA) \f8\emdash  \f7 the nonce must be the string value of nonce (not joined with data["nonce"] + post_data as a string concatenation before encoding). Let me verify then write the corrected file.Ran 2 commandsRan 2 commandsBoth algorithms verified. Now I know exactly what was wrong in dbg6:\par
+\par
+Kraken: used hmac.new(key, msg) with positional args in wrong order in the original; now confirmed the correct form\par
+CDC/Crypto.com: the recursive param builder had a Python closure bug in genexpr; now fixed\par
+CDC: params need recursive alphabetical sorting at every nesting level\par
+\par
+Now writing the complete, clean dbg6:Ran 2 commands, created a fileRan 2 commands, created a fileRemove the broken dbg6Scriptdbg6: complete, all stubs implemented, signing verified against official test vectorsreal_time_spread_engine_dbg6.pyFull validation: syntax, all functions present, Kraken HMAC vs official test vector, CDC param builderScriptDoneAll green. Present the {{\field{\*\fldinst{HYPERLINK file:Presented }}{\fldrslt{file:Presented\ul0\cf0}}}}\f7\fs22  filePresented fileValidation results: 26/26 functions \f4\u9989?\f8  \f7\'b7 Kraken HMAC vs official test vector \f4\u9989?\f8  \f7\'b7 CDC param builder \f4\u9989?\f8  \f7\'b7 Syntax clean \f4\u9989?\f7\par
+\par
+Here's exactly what was implemented and why each piece matters:\par
+What's fully working in dbg6\par
+Kraken HMAC-SHA512 (_kraken_sign)\par
+The algorithm from Kraken's official docs, now verified against their published test vector:\par
+SHA256( str(nonce) + urlencode(payload) )  \f8\u8594?  \f7 sha256_bytes\par
+HMAC-SHA512( urlpath_bytes + sha256_bytes,  key=base64decode(secret) )  \f8\u8594?  \f7 base64\par
+The critical detail is that nonce must be a string before being prepended, and the hmac.new() argument order is (key, message, digestmod) \f8\emdash  \f7 getting those reversed is the most common auth failure.\par
+Crypto.com HMAC-SHA256 (_cdc_sign + _cdc_params_to_str)\par
+CDC's algorithm requires recursive alphabetical key sorting at every nesting level of the params dict. The dbg6 version fixes the Python closure bug from dbg6's failed attempt. Output is hex (not base64 \f8\emdash  \f7 another common mistake). The signature payload is method + id + api_key + param_str + nonce.\par
+Fill-polling state machine (_poll_until_terminal)\par
+Polls every FILL_POLL_INTERVAL_SEC (0.5s) until the order reaches a terminal state. Both legs are polled in parallel via asyncio.gather. IOC orders on liquid books resolve in <1s; the 15s timeout is a safety net for exchange latency spikes only.\par
+Imbalance recovery\par
+If one leg fills and the other doesn't, the engine immediately alerts you with the exact manual action needed (buy/sell the exact quantity to flatten) and stops \f8\emdash  \f7 it does not attempt to withdraw or proceed.\par
+To go live \f8\emdash  \f7 three remaining manual steps:\par
+\par
+export KRAKEN_API_KEY=... KRAKEN_API_SECRET=... CDC_API_KEY=... CDC_API_SECRET=...\par
+Fill KRAKEN_WITHDRAWAL_KEY_NAMES and CDC_WITHDRAWAL_ADDRESSES with your real values\par
+Set EXECUTION_MODE = "semi_auto" \f8\emdash  \f7 first withdrawal will prompt Type WITHDRAW to confirm\par
+------\par
+_\highlight1 dbg7_anthropic.py\highlight0\par
+can you implement safeguards, that script can be used with tiny capital, that the default mode is auditing - when no orders are placed and no withdrawals are made, the "semi auto" mode with Human in a Loop to confirm major decions, but make sure taht buy low and sell high on spatially different exchanges is done at the same time, and withdrawal is done manualley later, and fully auto mode (that is dangerous, but make it possible.\par
+\highlight1\f0\lang9 Let me read the current dbg6 carefully before writing a single line.Viewed 4 filesViewed 4 filesGood. Now I have the full picture. Let me think through every safeguard carefully before writing:\par
+What needs to change architecturally:\par
+\par
+Three completely distinct execution paths \f1\emdash  advisory (zero API calls, zero risk), semi_auto (orders fire simultaneously, withdrawal is a separate human-confirmed step that can be done any time later), full_auto (everything automated, requires a typed passphrase to unlock)\par
+Capital safety guardrails \emdash  MAX_ORDER_USDT hard ceiling, MIN_CAPITAL floor so tiny amounts don't generate dust that costs more in fees than it's worth, per-session loss limit that kills the engine if breached\par
+Semi-auto must decouple trading from withdrawal \emdash  the two orders fire simultaneously (atomic as possible), profit is locked, then the engine pauses. Withdrawal is presented as a separate manual instruction list that the operator can execute whenever they choose\par
+Full-auto unlock mechanism \emdash  requires a typed passphrase at startup, plus a --full-auto CLI flag, so it can't be accidentally enabled by just editing a string\par
+Session-level risk counters \emdash  total deployed capital, total cycles executed, consecutive failures, all checked before each cycle\par
+\f0\par
 }
  
